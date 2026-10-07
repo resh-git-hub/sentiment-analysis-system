@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentiment Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">🧠</div>
+
+            <div>
+                <h1>Sentiment Analysis</h1>
+                <p>Analyze emotions from text or speech</p>
+            </div>
+        </header>
+
+
+        <!-- Main Input Card -->
+        <section class="card">
+
+            <div class="section-title">
+                <h2>Analyze Your Text</h2>
+                <span>AI Powered</span>
+            </div>
+
+            <textarea
+                id="textInput"
+                placeholder="Type something like: I really enjoyed this product. It is amazing!"
+            ></textarea>
+
+
+            <!-- Buttons -->
+            <div class="action-buttons">
+
+                <button class="mic-btn" onclick="startSpeech()">
+                    🎤 Speak
+                </button>
+
+                <button class="analyze-btn" onclick="analyzeSentiment()">
+                    🔍 Analyze Sentiment
+                </button>
+
+                <button class="clear-btn" onclick="clearText()">
+                    ✕ Clear
+                </button>
+
+            </div>
+
+            <p id="speechStatus">Ready to analyze</p>
+
+        </section>
+
+
+        <!-- Result Card -->
+        <section class="result-card" id="resultCard">
+
+            <div class="result-icon" id="resultIcon">
+                🤖
+            </div>
+
+            <h2 id="sentimentResult">
+                Waiting for Analysis
+            </h2>
+
+            <p id="resultMessage">
+                Enter text or use your microphone to begin.
+            </p>
+
+
+            <!-- Score -->
+            <div class="score-container">
+
+                <div class="score-label">
+                    <span>Sentiment Score</span>
+                    <strong id="score">0%</strong>
+                </div>
+
+                <div class="progress">
+                    <div id="progressBar"></div>
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="stats">
+
+                <div class="stat">
+                    <span>😊</span>
+                    <small>Positive Words</small>
+                    <strong id="positiveCount">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>😐</span>
+                    <small>Neutral Words</small>
+                    <strong id="neutralCount">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>😞</span>
+                    <small>Negative Words</small>
+                    <strong id="negativeCount">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- History -->
+        <section class="card history-card">
+
+            <div class="section-title">
+                <h2>Analysis History</h2>
+
+                <button class="delete-history"
+                        onclick="clearHistory()">
+                    🗑️ Clear History
+                </button>
+            </div>
+
+            <div id="history">
+                <p class="empty">
+                    No analysis history yet.
+                </p>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc,
+            #ecfeff
+        );
+
+    color: #172033;
+
+    padding: 40px 20px;
+}
+
+
+.app {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.logo {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    font-size: 30px;
+
+    box-shadow:
+        0 12px 25px rgba(99, 102, 241, 0.25);
+}
+
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+
+.header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* Card */
+
+.card,
+.result-card {
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 15px 45px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Section title */
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-title h2 {
+    font-size: 20px;
+}
+
+
+.section-title span {
+    background: #ede9fe;
+    color: #6d28d9;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* Textarea */
+
+textarea {
+    width: 100%;
+    height: 180px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #172033;
+
+    background: #f8fafc;
+
+    transition: 0.3s;
+}
+
+
+textarea:focus {
+    border-color: #6366f1;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(99,102,241,0.08);
+}
+
+
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Buttons */
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    border-radius: 13px;
+
+    padding: 13px 18px;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Microphone */
+
+.mic-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+.mic-btn:hover {
+    background: #fecaca;
+}
+
+
+/* Analyze */
+
+.analyze-btn {
+    flex: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(99,102,241,0.25);
+}
+
+
+.analyze-btn:hover {
+    box-shadow:
+        0 12px 25px rgba(99,102,241,0.35);
+}
+
+
+/* Clear */
+
+.clear-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+
+.clear-btn:hover {
+    background: #e2e8f0;
+}
+
+
+/* Status */
+
+#speechStatus {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+
+/* Result */
+
+.result-card {
+    text-align: center;
+
+    padding: 35px;
+}
+
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    font-size: 38px;
+}
+
+
+#sentimentResult {
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+
+#resultMessage {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* Score */
+
+.score-container {
+    margin-top: 28px;
+
+    text-align: left;
+}
+
+
+.score-label {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+}
+
+
+.progress {
+    width: 100%;
+    height: 12px;
+
+    background: #e2e8f0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.7s ease;
+}
+
+
+/* Stats */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 28px;
+}
+
+
+.stat {
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.stat span {
+    font-size: 25px;
+}
+
+
+.stat small {
+    color: #64748b;
+}
+
+
+.stat strong {
+    font-size: 22px;
+}
+
+
+/* History */
+
+.history-card {
+    margin-bottom: 0;
+}
+
+
+.delete-history {
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    padding: 9px 13px;
+
+    font-size: 12px;
+}
+
+
+.history-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    background: #f8fafc;
+
+    border-left: 4px solid #6366f1;
+}
+
+
+.history-text {
+    flex: 1;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.history-result {
+    min-width: 90px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    padding: 8px 10px;
+
+    border-radius: 10px;
+
+    height: fit-content;
+}
+
+
+.positive {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+.negative {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+.neutral {
+    background: #fef3c7;
+    color: #a16207;
+}
+
+
+.empty {
+    text-align: center;
+
+    color: #94a3b8;
+
+    padding: 20px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+
+    .card,
+    .result-card {
+        padding: 20px;
+    }
+
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .history-item {
+        flex-direction: column;
+    }
+
+
+    .history-result {
+        width: 100%;
+    }
+}
